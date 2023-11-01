@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>images/coverCat100.jpg</file>
+        <file>images/coverCP100V2.jpg</file>
+        <file>images/loadingBarV2.png</file>
+    </qresource>
+</RCC>
