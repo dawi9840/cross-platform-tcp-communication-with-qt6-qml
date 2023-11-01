@@ -112,7 +112,6 @@ void MyServer::sendImageToClient()
         // coverCat100.jpg, coverCP100V2.jpg.
         QImage image(":/images/coverCP100V2.jpg");
 
-        // v1: OK version
         QByteArray newBase64Data = encodeImageToBase64(image);
 
         serverSocket->write(newBase64Data);
