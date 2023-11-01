@@ -155,7 +155,6 @@ QByteArray MyServer::encodeImageToBase64(const QImage &image) {
     QBuffer buffer(&imageData);
     buffer.open(QIODevice::WriteOnly);
 
-    // v2: checksum version
     if (image.save(&buffer, "JPEG")) {
         // Calculate the checksum
         QCryptographicHash checksum(QCryptographicHash::Md5);
@@ -173,24 +172,6 @@ QByteArray MyServer::encodeImageToBase64(const QImage &image) {
         qDebug() << "Failed to save image.";
         return QByteArray();
     }
-
-    // v1: OK version
-//    // Write image data to QByteArray in JPEG format
-//    image.save(&buffer, "JPEG");
-
-//    // Encode QByteArray to Base64 using toBase64 method
-//    QByteArray base64Data = imageData.toBase64();
-
-//    // Create a new QByteArray data, and add the "Image:".
-//    QByteArray newBase64Data("Image:");
-
-//    // Add the base64Data into the newBase64Data.
-//    newBase64Data.append(base64Data);
-
-//    //qDebug() << "Server base64Data: " << imageData;
-//    //qDebug() << "Total imageDatSize: " << newBase64Data.size() << " bytes";
-//    qDebug() << "Source imageDatSize: " << imageData.size() << " bytes";
-//    return newBase64Data;
 }
 
 QString MyServer::saveImageToTempLocation(const QImage &image)
